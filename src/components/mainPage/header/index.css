@@ -1,0 +1,32 @@
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 10px;
+
+    height: 75px;
+    background-color: #b2b2b2;
+}
+
+span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+input {
+    box-sizing: border-box;
+    height: 30px;
+    width: 250px;
+    padding: 0 0 0 10px;
+    border-radius: 5px;
+    border: #a2a2a2;
+    margin-right: 5px;
+}
+
+button {
+    height: 30px;
+    border-radius: 5px;
+    border: 0;
+}

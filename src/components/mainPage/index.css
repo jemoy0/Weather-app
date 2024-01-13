@@ -1,0 +1,10 @@
+section {
+    height: 100vh;
+}
+
+.mainInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 633px;
+}

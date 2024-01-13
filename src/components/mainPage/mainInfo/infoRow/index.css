@@ -1,0 +1,16 @@
+.infoRow {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.label {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.value {
+    font-weight: 500;
+    font-size: 20px;
+    color: black;
+}
