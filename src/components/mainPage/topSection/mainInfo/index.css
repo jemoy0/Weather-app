@@ -1,4 +1,4 @@
-.container {
+.mainSection.container {
     display: flex;
     box-sizing: border-box;
     background-color: #dadada;
@@ -11,7 +11,7 @@
 
 /*  */
 
-.additionalInfo {
+.mainSection .additionalInfo {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -19,18 +19,18 @@
     padding: 15px 0 0 25px;
 }
 
-.city {
+.mainSection .city {
     font-size: 32px;
     font-weight: bold;
 }
 
-.date {
+.mainSection .date {
     margin-top: 20px;
     font-size: 18px;
 }
 
 
-.icon {
+.mainSection .icon {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -41,7 +41,7 @@
     align-items: center;
 }
 
-.icon div {
+.mainSection .icon div {
     font-size: 24px;
     font-weight: 500;
     transform: translateY(-40px);
@@ -49,7 +49,7 @@
 
 /*  */
 
-.weatherData {
+.mainSection .weatherData {
     display: flex;
     box-sizing: border-box;
     flex-direction: column;
@@ -61,9 +61,8 @@
     border-radius: 10px;
 }
 
-.temperature {
+.mainSection .temperature {
     font-size: 56px;
 
     margin: 75px auto 30px auto;
 }
-
