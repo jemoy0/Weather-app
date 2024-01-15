@@ -8,3 +8,18 @@ section {
     justify-content: center;
     height: 633px;
 }
+
+.bottomSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid #a8a8a8;
+    background-color: #e2e2e2;
+}
+
+.bottomSection > div {
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+}

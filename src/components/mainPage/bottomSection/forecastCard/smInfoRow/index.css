@@ -1,0 +1,17 @@
+.card .infoRow {
+    display: flex;
+    justify-content: space-between;
+    width: 160px;
+    margin: 10px 0;
+}
+
+.card .label {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.card .value {
+    font-weight: 500;
+    font-size: 14px;
+    color: black;
+}
