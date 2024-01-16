@@ -10,7 +10,7 @@ header {
     background-color: #b2b2b2;
 }
 
-span {
+.logo {
     font-size: 24px;
     font-weight: bold;
 }

@@ -1,0 +1,19 @@
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 10px;
+
+    height: 75px;
+    width: 100%;
+    background-color: #b2b2b2;
+}
+
+footer .logo {
+    color: #292929;
+}
+footer div a {
+    margin-left: 10px;
+}

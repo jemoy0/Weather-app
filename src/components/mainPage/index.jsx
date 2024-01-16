@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Header, MainInfo } from "./topSection"
 import "./index.css"
-import { ForecastCard } from "./bottomSection/forecastCard"
+import { Footer, ForecastCard } from "./bottomSection"
 
 export const MainPage = () => {
     const [coords, setCoords] = useState({lat: 51.509865, lon: -0.118092})
@@ -88,9 +88,9 @@ export const MainPage = () => {
             return(forecast)
         }
         
-        setForecastSt1(Object.values(filter(1)))
-        setForecastSt2(Object.values(filter(2)))
-        setForecastSt3(Object.values(filter(3)))
+        setForecastSt1(filter(1))
+        setForecastSt2(filter(2))
+        setForecastSt3(filter(3))
         
     }
 
@@ -121,7 +121,7 @@ export const MainPage = () => {
         const arr = (array)
         const sum = arr.reduce((a, b) => a + b.visibility, 0);
         const avg = (sum / arr.length) || 0;
-        return(Math.round(avg)/1000)
+        return(Math.round(avg/100)/10)
     }
 
     //
@@ -149,11 +149,13 @@ export const MainPage = () => {
             </div>
         </section>
         <section className="bottomSection">
+            <h1>Прогнози погоди</h1>
             <div>
                 <ForecastCard forecast={forecastSt1} avg={avgObject(forecastSt1)}/>
                 <ForecastCard forecast={forecastSt2} avg={avgObject(forecastSt2)}/>
                 <ForecastCard forecast={forecastSt3} avg={avgObject(forecastSt3)}/>
             </div>
+            <Footer/>
         </section>
         </>
     )

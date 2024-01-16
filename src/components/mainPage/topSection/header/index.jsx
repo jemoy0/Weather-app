@@ -4,7 +4,7 @@ export const Header = (props) => {
 
     return(
         <header>
-            <span>Wthr</span>
+            <span className="logo">Wthr</span>
             <div>
                 <form
                     onSubmit={(e) => {
