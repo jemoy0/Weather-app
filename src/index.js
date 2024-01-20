@@ -1,11 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import "./index.css"
-import { MainPage } from './components';
+import { MainPage } from './pages/export';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainPage/>
+  },
+])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
-    <MainPage/>
+    <RouterProvider router={router}/>
   // </React.StrictMode>
 );

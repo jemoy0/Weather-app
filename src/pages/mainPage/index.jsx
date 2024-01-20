@@ -1,25 +1,28 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react"
-import { Header, MainInfo } from "./topSection"
 import "./index.css"
-import { Footer, ForecastCard } from "./bottomSection"
+import { Footer, ForecastCard, Header, MainInfo } from "./components/export"
 
 export const MainPage = () => {
     const [coords, setCoords] = useState({lat: 51.509865, lon: -0.118092})
 
-// Верхня секція
     const [json0, setJson0] = useState()
     const [cityName, setCityName] = useState()
     const [searchValue, setSearchValue] = useState()
     const [weatherData, setWeatherData] = useState()
 
+    const [selectValue, setSelectValue] = useState()
+
     //Стандартна локація (Лондон) (В планах зробити запит про локацію користувача при заході на сайт)
+
+    const getDefWeatherData = async () => {
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&units=metric&lang=uk&appid=7ac3df89aa900441a1d739cbd173fb5e`);
+        const json = await response.json()
+        setWeatherData(json)
+        setCityName("Лондон")
+    }
+
     useEffect(() => {
-        const getDefWeatherData = async () => {
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&units=metric&lang=uk&appid=7ac3df89aa900441a1d739cbd173fb5e`);
-            const json = await response.json()
-            setWeatherData(json)
-            setCityName("Лондон")
-        }
         getDefWeatherData();
         getForecast()
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -35,7 +38,6 @@ export const MainPage = () => {
         } else {
             alert("Місто не знайдено :(")
         }
-        // isInitialMount.current = false
     }
     
     const getWeatherData = async () => {
@@ -62,8 +64,9 @@ export const MainPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [coords])
 
-// Нижня секція
+// 
 
+    const [forecastSt0, setForecastSt0] = useState()
     const [forecastSt1, setForecastSt1] = useState()
     const [forecastSt2, setForecastSt2] = useState()
     const [forecastSt3, setForecastSt3] = useState()
@@ -87,16 +90,27 @@ export const MainPage = () => {
 
             return(forecast)
         }
+
+        const dayAhead = () => {
+            const today = new Date()
+            const floorDate = today
+            const ceilingDate = today.getTime() + 86400000
+            let forecast = json.list
+            forecast = forecast.filter(el => el.dt >= floorDate/1000)
+            forecast = forecast.filter(el => el.dt <= ceilingDate/1000)
+            return(forecast)
+        }
         
+        setForecastSt0(dayAhead())
         setForecastSt1(filter(1))
         setForecastSt2(filter(2))
         setForecastSt3(filter(3))
-        
     }
 
     // !!!Цей набір функцій - тимчасова заглушка, пізніше я спробую знайти більш оптимізований спосіб розраховувати середнє значення
 
-    const avgTemp = (array) => {
+
+    const avgTemp = (array, temp) => {
         const arr = (array)
         const sum = arr.reduce((a, b) => a + b.main.temp, 0);
         const avg = (sum / arr.length) || 0;
@@ -130,22 +144,37 @@ export const MainPage = () => {
         return({temp: avgTemp(array), humidity: avgHum(array), feelsLike: avgFeelLike(array), visibility: avgVisibility(array)})
     } 
 
+    const onChangeTimePicker = (value, forecast) => {
+        if (value === "current") {
+            if (searchValue) {
+                getCoords()
+            } else {
+                getDefWeatherData()
+            }
+        } else {
+            setWeatherData(forecast[value])
+        }
+        setSelectValue(value)
+        // setWeatherData(el)
+    }
+    // console.log(forecastSt0[0])
+
 // ------------------------------------------
 
     if (weatherData === undefined) {
         return <>Loading</>;
     } 
 
-    if (forecastSt1 === undefined) {
+    if (forecastSt0 === undefined) {
         return <>Loading</>;
     }
 
     return (
         <>
-        <section>
+        <section className="topSection">
             <Header setSearchValue={setSearchValue} onSubmit={getCoords} />
             <div className="mainInfo">
-                <MainInfo weatherData={weatherData} city={cityName}/>
+                <MainInfo weatherData={weatherData} city={cityName} forecast={forecastSt0} selectValue={selectValue} onChange={onChangeTimePicker}/>
             </div>
         </section>
         <section className="bottomSection">

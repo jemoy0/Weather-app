@@ -1,4 +1,4 @@
-import "./index.css"
+import "./infoRow.css"
 
 export const InfoRow = ({label, value}) => {
     return (

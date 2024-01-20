@@ -9,7 +9,14 @@
     box-sizing: border-box;
     padding-top: 20px;
 
-    background-color: #cdcdcd;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+
+    /*
+    border-radius: 25px;
+    background: #e0e0e0;
+    box-shadow:  20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+    */
 }
 
 .card .temperature {
@@ -35,8 +42,8 @@
 
 .card .date {
     position: absolute;
-    top: 5px;
-    left: 5px;
+    top: 15px;
+    left: 25px;
 
     font-size: 16px;
     font-weight: 500;

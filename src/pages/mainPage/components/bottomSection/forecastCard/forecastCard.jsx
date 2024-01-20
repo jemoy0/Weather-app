@@ -1,5 +1,5 @@
 
-import "./index.css"
+import "./forecastCard.css"
 import { SmInfoRow } from "./smInfoRow"
 
 export const ForecastCard = ({ avg, forecast }) => {
