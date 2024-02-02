@@ -1,0 +1,19 @@
+.chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(255,255,255);
+  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(243,248,250,1) 30%, rgba(243,248,250,1) 70%, rgba(255,255,255,1) 100%);
+}
+
+.chartDiv {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0 40px 0;
+  width: 920px;
+  height: 430px;
+  background:linear-gradient(135deg, #eeeff3 0%,#e0e3e9 100%);
+  border-radius: 15px;
+}

@@ -1,8 +1,17 @@
 * {
     font-family: inter;
-    color: #252525;
+    scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:visited {
+    color: inherit;
 }
