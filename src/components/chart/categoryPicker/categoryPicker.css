@@ -1,0 +1,18 @@
+select {
+    border: 0;
+    border-radius: 1px;
+    background-color: #ffffff40;
+    
+}
+select:focus-visible {
+    outline: 0;
+}
+
+.selectCategory {
+    position: absolute;
+    top: 15px;
+    left: 25px;
+
+    background-color: #00000019;
+    border-radius: 2px;
+}

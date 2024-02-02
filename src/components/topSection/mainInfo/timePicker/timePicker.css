@@ -1,0 +1,9 @@
+select {
+    border: 0;
+    border-radius: 1px;
+    background-color: #ffffff40;
+    
+}
+select:focus-visible {
+    outline: 0;
+}
