@@ -97,6 +97,8 @@ export const ForecastsPage = () => {
     setForecast(filter(params.step));
   };
 
+  // Інформація для графіка:
+
   useEffect(() => {
     if (forecast) {
       console.log(forecast);
@@ -133,6 +135,8 @@ export const ForecastsPage = () => {
   const onHeaderSubmit = () => {
     navigate("/", { state: searchValue });
   };
+
+  // Інформація для графіка:
 
   const onChangeCategoryPicker = (value, label) => {
     setData({
@@ -187,7 +191,7 @@ export const ForecastsPage = () => {
           <MainInfo weatherData={weatherData} city={cityName} forecast={forecast} selectTimeValue={selectTimeValue} onChange={[onChangeTimePicker, setWeatherData]} state={{ current: false }} />
         </div>
       </section>
-      <section className="forecast">
+      <section className="chart" id="chart">
         <Chartt data={data} onChange={onChangeCategoryPicker} value={selectCategoryValue} />
       </section>
       <Footer />

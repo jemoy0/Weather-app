@@ -10,8 +10,8 @@ footer {
     width: calc(100% - 20px);
     margin: 0 auto 10px auto;
 
-    border-radius: 25px;
-    background:linear-gradient(135deg, #d1d5db 0%,#a5abb5 100%);
+    border-radius: 15px;
+    background:linear-gradient(135deg, #d1d5db 50%,#a5abb5 100%);
 }
 
 footer .logo {
