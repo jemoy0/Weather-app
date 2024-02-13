@@ -9,10 +9,10 @@ header {
     height: 75px;
     width: calc(100% - 20px);
     margin: 10px auto 0 auto;
-    background:linear-gradient(135deg, #46464b 0%,#212125 100%);
+    background:linear-gradient(135deg, #46464b 50%,#212125 100%);
 
     color: #fff;
-    border-radius: 25px;
+    border-radius: 15px;
 }
 
 .logo {

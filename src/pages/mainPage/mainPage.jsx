@@ -46,7 +46,7 @@ export const MainPage = () => {
   }, []);
 
   // ------------------------------------------
-  // Основні функції
+  // Основні функції:
 
   const getCoords = async (city) => {
     const response = await fetch(!city ? `http://api.openweathermap.org/geo/1.0/direct?q=${searchValue}&limit=1&appid=7ac3df89aa900441a1d739cbd173fb5e` : `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=7ac3df89aa900441a1d739cbd173fb5e`);
@@ -88,7 +88,7 @@ export const MainPage = () => {
   }, [coords]);
 
   // ------------------------------------------
-  // Прогнози погоди
+  // Прогнози погоди:
 
   const [forecastSt0, setForecastSt0] = useState();
   const [forecastSt1, setForecastSt1] = useState();
@@ -143,6 +143,8 @@ export const MainPage = () => {
     return { temp: avgValue(array, "temp", 10, "mp"), humidity: avgValue(array, "humidity", 1, "mp"), feelsLike: avgValue(array, "feels_like", 10, "mp"), visibility: avgValue(array, "visibility") };
   };
 
+  // Інформація для графіка:
+
   useEffect(() => {
     if (forecastSt0) {
       setData({
@@ -189,6 +191,8 @@ export const MainPage = () => {
 
     // setWeatherData(el);
   };
+
+  // Інформація для графіка:
 
   const onChangeCategoryPicker = (value, label) => {
     setData({
@@ -244,9 +248,12 @@ export const MainPage = () => {
         <Chartt data={data} onChange={onChangeCategoryPicker} value={selectCategoryValue} />
       </section>
       <section className="bottomSection" id="forecasts">
-        <Forecasts forecasts={[forecastSt1, forecastSt2, forecastSt3]} averageValues={[avgObject(forecastSt1), avgObject(forecastSt2), avgObject(forecastSt3)]} cityname={cityName} />
-        <Footer />
+        <div>
+          <p>Прогнози</p>
+          <Forecasts forecasts={[forecastSt1, forecastSt2, forecastSt3]} averageValues={[avgObject(forecastSt1), avgObject(forecastSt2), avgObject(forecastSt3)]} cityname={cityName} />
+        </div>
       </section>
+      <Footer />
     </>
   );
 };

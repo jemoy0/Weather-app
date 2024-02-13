@@ -15,9 +15,9 @@ export const Header = (props) => {
         ) : (
           <></>
         )}
+        <a href="#chart">Графік</a>
         {props.state.forecasts ? (
           <>
-            <a href="#chart">Графік</a>
             <a href="#forecasts">Прогнози</a>
           </>
         ) : (

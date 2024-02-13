@@ -1,11 +1,11 @@
 .forecastList {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   margin: auto 0;
   /* background-color: #f2f3f9;
   border-radius: 15px;
   height: 433px; */
-  width: 1000px;
+  width: 920px;
   /* padding: 0 50px; */
 }
